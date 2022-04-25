@@ -3,7 +3,7 @@ Write Sql Sentences inline in delphi code, without create big strings
 
 # How to start
 
-Add both dependencies in your project /src/
+Add both dependencies in your project **/src/**
 
 ```Delphi
 uses SQLPattern, TSql;
