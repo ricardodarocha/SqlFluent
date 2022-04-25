@@ -30,9 +30,14 @@ type
 
     function Add(AExpressao: String): TMotorSql; overload;
     function Add(AExpressao1, AExpressao2: String; Template: string = '%s %s'): TMotorSql; overload;
-    function Add(AAlias: string; AColunas: array of String; const ASep: string = ','#$D#$A): TMotorSql; overload;
+    function Add(AAlias: string; AColunas: array of String; const ASep: string = ',' ): TMotorSql; overload;
     function AddAlias(AAlias, AColuna: String): TMotorSql;
     function AddTipo(AColuna, ATipo: String): TMotorSql;
+
+    function &AND(AExpressao: String): TMotorSql;
+    function &OR(AExpressao: String): TMotorSql;
+    function BETWEEN(A, B: String; Template: string = '(BETWEEN %s AND %s)'): TMotorSql;
+
     function ToSql: string;
   end;
 
@@ -87,6 +92,21 @@ end;
 function TMotorSql.AddAlias(AAlias, AColuna: String): TMotorSql;
 begin
   Result := Add(AAlias, AColuna, '%s.%s');
+end;
+
+function TMotorSql.&AND(AExpressao: String): TMotorSql;
+begin
+  Result := Add(AExpressao, sLineBreak, 'AND (%s) %s');
+end;
+
+function TMotorSql.&OR(AExpressao: String): TMotorSql;
+begin
+  Result := Add(AExpressao, sLineBreak, 'OR (%s) %s');
+end;
+
+function TMotorSql.BETWEEN(A, B: String; Template: string = '(BETWEEN %s AND %s)'): TMotorSql;
+begin
+  Result := Add(A, B, Template + sLineBreak);
 end;
 
 function TMotorSql.Add(AAlias: string; AColunas: array of String; const ASep: string): TMotorSql;

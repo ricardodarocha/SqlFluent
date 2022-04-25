@@ -39,4 +39,31 @@ object Form2: TForm2
     ParentFont = False
     TabOrder = 1
   end
+  object Button2: TButton
+    Left = 88
+    Top = 8
+    Width = 97
+    Height = 25
+    Caption = 'JOBCADASTRO'
+    TabOrder = 2
+    OnClick = Button2Click
+  end
+  object Button3: TButton
+    Left = 191
+    Top = 8
+    Width = 130
+    Height = 25
+    Caption = 'JOBCONIFGURACAO'
+    TabOrder = 3
+    OnClick = Button3Click
+  end
+  object Button4: TButton
+    Left = 328
+    Top = 8
+    Width = 137
+    Height = 25
+    Caption = 'JOBCONFIGURCAODET'
+    TabOrder = 4
+    OnClick = Button4Click
+  end
 end
