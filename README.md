@@ -6,7 +6,7 @@ Write Sql Sentences inline in delphi code, without create big strings
 Add both dependencies in your project **/src/**
 
 ```Delphi
-uses SQLPattern, TSql;
+uses TSql, SQLPattern;
 ```
 
 Then Create Sql expressions as you expect
